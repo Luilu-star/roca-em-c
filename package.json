@@ -1,0 +1,11 @@
+{
+  "name": "roca-em-c",
+  "version": "1.0.0",
+  "description": "Jogo educativo estilo The Farmer Was Replaced para ensinar lógica de programação em C.",
+  "private": true,
+  "scripts": {
+    "test": "node test/test.js",
+    "start": "npx --yes serve ."
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Jogo de 11 fases em que o aluno programa um fazendeiro em C, de if/else até vetores.">
+<title>Roça em C</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&family=Pixelify+Sans:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topo">
+    <div class="marca">
+      <div class="logo">Roça em <b>C</b></div>
+      <div class="sub">Programe o fazendeiro em C para cuidar da horta</div>
+    </div>
+    <nav class="fases" id="fases" aria-label="Fases do jogo"></nav>
+  </header>
+
+  <section class="missao" aria-labelledby="titulo">
+    <div>
+      <p class="kicker" id="kicker"></p>
+      <h1 id="titulo"></h1>
+      <p class="historia" id="historia"></p>
+    </div>
+    <div class="objetivos">
+      <h2>Objetivos</h2>
+      <ul id="objetivos"></ul>
+    </div>
+  </section>
+
+  <main class="palco">
+    <div class="col col-editor">
+      <section class="editor" aria-label="Editor de código">
+        <div class="ed-barra">
+          <span class="ed-arquivo">fazenda.c</span>
+          <button class="btn escuro" id="btnRestaurar" type="button">Código inicial</button>
+          <button class="btn escuro" id="btnParar" type="button" disabled>Parar</button>
+          <button class="btn primario escuro" id="btnRodar" type="button">Executar</button>
+        </div>
+        <div class="ed-corpo">
+          <div class="gutter" id="gutter" aria-hidden="true"><pre></pre></div>
+          <div class="ed-area">
+            <div class="barra-linha" id="barraAtiva"></div>
+            <div class="barra-linha" id="barraErro"></div>
+            <textarea id="codigo" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off" aria-label="Código em C"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section class="resultado" aria-live="polite">
+        <div class="estado" id="estado" data-s="ocioso">
+          <span class="txt" id="estadoTxt"></span>
+          <button class="btn primario" id="btnProxima" type="button" hidden>Próxima fase</button>
+        </div>
+        <ul class="checks" id="checks"></ul>
+        <div class="saida">
+          <h3>Saída do programa</h3>
+          <pre id="saida"></pre>
+        </div>
+      </section>
+    </div>
+
+    <div class="col col-campo">
+      <div>
+        <div class="moldura" id="moldura">
+          <div id="campo"></div>
+          <div class="hud" id="hud">
+            <span>Posição <b id="hudPos">(0, 0)</b></span>
+            <span>Colhidas <b id="hudCol">0</b></span>
+            <span>Celeiro <b id="hudCel">nada</b></span>
+            <span id="hudMundo"></span>
+          </div>
+        </div>
+      </div>
+      <div class="controles">
+        <label class="vel" for="vel">Velocidade <input type="range" id="vel" min="1" max="5" step="1" value="3"></label>
+        <button class="btn" id="btnMundo" type="button">Outra fazenda</button>
+      </div>
+
+      <section class="cartao" aria-labelledby="aprendaT">
+        <h2 id="aprendaT">O que você precisa saber</h2>
+        <p id="aprenda"></p>
+        <pre class="codigo" id="exemplo"></pre>
+        <p class="nota" id="nota"></p>
+      </section>
+
+      <section class="cartao" aria-labelledby="cmdT">
+        <h2 id="cmdT">Comandos desta fase</h2>
+        <dl class="comandos" id="comandos"></dl>
+        <p class="consts">CIMA=0 DIREITA=1 BAIXO=2 ESQUERDA=3<br>VAZIO=0 BROTO=1 MADURO=2 PEDRA=3</p>
+      </section>
+
+      <details class="dica" id="dica"><summary>Preciso de uma dica</summary><p id="dicaTxt"></p></details>
+
+      <details class="prof" id="prof">
+        <summary>Gabarito para o professor</summary>
+        <div class="corpo">
+          <pre class="codigo" id="gabarito"></pre>
+          <div><button class="btn" id="btnGabarito" type="button">Colocar no editor</button></div>
+        </div>
+      </details>
+    </div>
+  </main>
+
+  <p class="rodape">Seu código e as fases concluídas ficam salvos neste navegador. Cada teste roda em 3 fazendas diferentes, então só passa quem programa de verdade e não decora um caso.</p>
+</div>
+
+<script src="js/engine.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
